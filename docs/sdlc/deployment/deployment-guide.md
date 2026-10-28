@@ -7,7 +7,12 @@ Pushes to `main` run `.github/workflows/deploy.yml`, which builds the API image 
 <!-- sdlc:auto:end how-it-deploys -->
 
 <!-- sdlc:auto:start environments -->
-_No environments recorded._
+| Name | Service | Runtime | Scaling | Environment |
+|---|---|---|---|---|
+| web | Docker Compose service 'web' (React 19 built with Vite, Vite dev server in dev) | Node 20 container, port 5173 | single instance | dev |
+| api | Docker Compose service 'api' (FastAPI 0.115 under uvicorn, runs 'alembic upgrade head' on start) | Python 3.12 container, port 8000 | single instance | dev |
+| db | Docker Compose service 'db' (postgres:16) with named volume pgdata | PostgreSQL 16 container, port 5432 internal only | single instance, persistent volume | dev |
+| aws_host | AWS EC2 small instance (e.g. t3.small) running the same Docker Compose stack, with an EBS-backed volume for pgdata | Amazon Linux with Docker and Docker Compose | single small instance (NFR-009) | dev |
 <!-- sdlc:auto:end environments -->
 
 <!-- sdlc:auto:start live -->
@@ -15,5 +20,14 @@ _Not deployed yet._
 <!-- sdlc:auto:end live -->
 
 <!-- sdlc:auto:start topology -->
-_No deployment topology recorded._
+```mermaid
+graph LR
+  n_web["web<br/>Docker Compose service 'web' (React 19 built with Vite, Vite dev server in dev)"]
+  n_api["api<br/>Docker Compose service 'api' (FastAPI 0.115 under uvicorn, runs 'alembic upgrade head' on start)"]
+  n_db["db<br/>Docker Compose service 'db' (postgres:16) with named volume pgdata"]
+  n_aws_host["aws_host<br/>AWS EC2 small instance (e.g. t3.small) running the same Docker Compose stack, with an EBS-backed volume for pgdata"]
+  n_web -->|"HTTP (REST/JSON, CORS)"| n_api
+  n_api -->|"PostgreSQL TCP (SQLAlchemy)"| n_db
+  n_aws_host -->|"HTTP via security group on 80/5173"| n_web
+```
 <!-- sdlc:auto:end topology -->

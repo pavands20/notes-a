@@ -5,7 +5,7 @@
 <!-- sdlc:auto:start overview -->
 A one-page app where a user can add a short note, see the list of notes, and delete a note. No login, no file uploads, no AI. React frontend, FastAPI backend, Postgres.
 
-**Documentation version:** v1
+**Documentation version:** v2
 <!-- sdlc:auto:end overview -->
 
 ## Contents
@@ -14,15 +14,15 @@ A one-page app where a user can add a short note, see the list of notes, and del
 | Document | State |
 |---|---|
 | [Requirements](requirements/README.md) | v1 approved |
-| [Architecture](architecture/README.md) | 1 entry |
+| [Architecture](architecture/README.md) | 15 entries |
 | [Development](development/README.md) | 1 entry |
 | [Testing](testing/README.md) | 1 entry |
 | [Deployment](deployment/README.md) | 1 entry |
 | [Maintenance](maintenance/README.md) | 1 entry |
-| [Data model](architecture/data-model.md) | not generated yet |
-| [API (OpenAPI)](architecture/api/openapi.yaml) | not generated yet |
-| [Decisions (ADRs)](architecture/adr/README.md) | 0 decisions |
-| [Sprint plan](development/sprint-plan.md) | not generated yet |
+| [Data model](architecture/data-model.md) | generated |
+| [API (OpenAPI)](architecture/api/openapi.yaml) | generated |
+| [Decisions (ADRs)](architecture/adr/README.md) | 4 decisions |
+| [Sprint plan](development/sprint-plan.md) | 2 sprints |
 | [Developer guide](development/developer-guide.md) | not generated yet |
 | [API reference](development/api-reference.md) | 0 routes |
 | [Test report](testing/test-report.md) | not run yet |
@@ -31,7 +31,7 @@ A one-page app where a user can add a short note, see the list of notes, and del
 | [Runbook](deployment/runbook.md) | not deployed yet |
 | [Release notes](deployment/release-notes.md) | 0 releases |
 | [Traceability matrix](traceability-matrix.md) | 9 requirements |
-| [Changelog](CHANGELOG.md) | 1 version |
+| [Changelog](CHANGELOG.md) | 2 versions |
 <!-- sdlc:auto:end contents -->
 
 ## Open gaps
@@ -63,7 +63,28 @@ A one-page app where a user can add a short note, see the list of notes, and del
 
 ### Architecture
 
-- Architecture phase has not started: no system design, data model, API contract, or AWS deployment topology is recorded.
+- No approval date or approver is recorded for this architecture version.
+- The architecture cites AC-xxx and NFR-xxx ids, but the known requirement keys are US-001 to US-009. No mapping between them was provided, so links to the US keys cannot be established.
+- The component says it is served as static assets, but the 'web' deployment node describes a Node 20 container on port 5173 running the Vite dev server in dev. How static assets are served in the AWS deployment is not specified.
+- Inconsistent wording on PUT/PATCH: the component says '405 or 404', but the Backend tech decision says leaving out update routes 'gives 405'. Please confirm the expected status code.
+- No rate limiting or auth on a publicly hosted EC2 service is stated as a design choice. Any accepted abuse or spam risk is not documented.
+- The exact CORS origin(s) for local and AWS environments are not specified.
+- The exact CHECK constraint expression is not specified, e.g. whether it also rejects whitespace-only text or only enforces length.
+- No backup or snapshot strategy is described for the database volume (local or EBS).
+- Column types are not specified (e.g. id integer/serial vs UUID; created_at timestamp with or without time zone).
+- It is not stated whether created_at is set by the database default or by the application.
+- Response body shapes (JSON field names and the timestamp format) are not specified.
+- It is not stated whether the stored text is the raw input or the stripped text, or whether the 280 limit applies before or after stripping.
+- Behaviour when GET /notes fails (network or server error) is not described.
+- The production web serving mode on EC2 is not specified (the Vite dev server is only described for dev; static asset serving is not described).
+- TLS/HTTPS, domain name and any reverse proxy for the EC2 host are not described.
+- Which ports are publicly exposed on EC2 (security group rules for 5173 and 8000) is not specified.
+- The instance size is given only as an example ('e.g. t3.small'); the final choice is not confirmed.
+- This decision says PUT/PATCH gives 405, while the notes_api component says '405 or 404'. The discrepancy is flagged for confirmation.
+- Map the AC-xxx and NFR-xxx ids to US-001 to US-009 so architecture entries can be traced to user stories.
+- AC-012, AC-013, AC-018, AC-019 and AC-020 are not referenced by any critical path. Confirm whether they exist and how the architecture covers them.
+- NFR-004, NFR-005 and NFR-006 are not referenced anywhere in the architecture. Confirm whether they exist and how they are addressed.
+- No approval date, approver or decision record is given for the 'approved' status of Version 1.
 
 ### Development
 

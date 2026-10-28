@@ -2,6 +2,71 @@
 openapi: 3.1.0
 info:
   title: Notes A
-  version: architecture-v0
+  version: architecture-v1
   description: Designed API from the approved architecture (not extracted from code).
-paths: {}
+paths:
+  /health:
+    get:
+      summary: Liveness check used by Docker Compose healthcheck and the README.
+      description: Liveness check used by Docker Compose healthcheck and the README.
+      operationId: get_health
+      parameters: []
+      responses:
+        '200':
+          description: '200 {"status": "ok"}'
+  /notes:
+    get:
+      summary: List all notes, newest first, without pagination.
+      description: List all notes, newest first, without pagination.
+      operationId: get_notes
+      parameters: []
+      responses:
+        '200':
+          description: '200 [{"id": int, "text": string, "created_at": ISO-8601 datetime}]'
+    post:
+      summary: Create a note of 1 to 280 characters that is not whitespace-only.
+      description: Create a note of 1 to 280 characters that is not whitespace-only.
+      operationId: post_notes
+      parameters: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              description: '{"text": string}'
+      responses:
+        '200':
+          description: '201 {"id": int, "text": string, "created_at": ISO-8601 datetime}.
+            422 {"detail": [...]} when the text is empty, whitespace-only or over
+            280 characters, and nothing is stored.'
+  /notes/{id}:
+    delete:
+      summary: Permanently delete any note (hard delete, no ownership check).
+      description: Permanently delete any note (hard delete, no ownership check).
+      operationId: delete_notes_id
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: '204 No Content. 404 {"detail": "Note not found"} when the
+            id does not exist.'
+components:
+  schemas:
+    notes:
+      type: object
+      properties:
+        id:
+          type: string
+        text:
+          type: string
+        created_at:
+          type: string
+          format: date-time
+      required:
+      - id
+      - text
+      - created_at
