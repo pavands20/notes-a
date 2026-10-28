@@ -5,7 +5,7 @@
 <!-- sdlc:auto:start overview -->
 A one-page app where a user can add a short note, see the list of notes, and delete a note. No login, no file uploads, no AI. React frontend, FastAPI backend, Postgres.
 
-**Documentation version:** v2
+**Documentation version:** v3
 <!-- sdlc:auto:end overview -->
 
 ## Contents
@@ -15,7 +15,7 @@ A one-page app where a user can add a short note, see the list of notes, and del
 |---|---|
 | [Requirements](requirements/README.md) | v1 approved |
 | [Architecture](architecture/README.md) | 15 entries |
-| [Development](development/README.md) | 1 entry |
+| [Development](development/README.md) | 19 entries |
 | [Testing](testing/README.md) | 1 entry |
 | [Deployment](deployment/README.md) | 1 entry |
 | [Maintenance](maintenance/README.md) | 1 entry |
@@ -31,7 +31,7 @@ A one-page app where a user can add a short note, see the list of notes, and del
 | [Runbook](deployment/runbook.md) | not deployed yet |
 | [Release notes](deployment/release-notes.md) | 0 releases |
 | [Traceability matrix](traceability-matrix.md) | 9 requirements |
-| [Changelog](CHANGELOG.md) | 2 versions |
+| [Changelog](CHANGELOG.md) | 3 versions |
 <!-- sdlc:auto:end contents -->
 
 ## Open gaps
@@ -88,7 +88,31 @@ A one-page app where a user can add a short note, see the list of notes, and del
 
 ### Development
 
-- Development phase has not started: no sprint plan, tickets or implementation records exist.
+- No approval date or approver recorded for plan v1.
+- No development execution records (tickets, commits, PRs, reviews, completion status) provided, so actual progress against the plan is unknown.
+- Explicit story-to-sprint assignment is not given; sprint membership is only implied by sprint goal text.
+- Epics have no points or owning role assigned (points=None, role unassigned).
+- Sprint dates not provided.
+- Story membership is inferred from the goal text; no explicit assignment in input.
+- No record of whether the sprint started, completed, or met its goal.
+- Inferred load (4 points) is well below capacity (20); input gives no reason for the unused capacity.
+- No record of whether the sprint started or completed.
+- Parent/child linkage is inferred from plan item ordering; not explicitly stated.
+- No development status recorded.
+- Parent/child linkage is inferred from plan item ordering.
+- No API contract (endpoints, payloads) provided in development input.
+- No ticket, code, or completion status recorded.
+- Sort key for "newest first" (e.g. creation timestamp) not specified in development input.
+- No ticket, verification result, or completion status recorded.
+- Maximum note length not specified in development input.
+- Assigned only to frontend-agent; input does not state whether validation is also enforced server-side.
+- Whether deletion requires a confirmation step is not specified.
+- Migration tooling and volume configuration not specified.
+- Endpoint paths, methods and payload schema not provided.
+- README content not provided.
+- No development execution records provided.
+- Application not confirmed built; end-user guide cannot be produced.
+- No industry or domain skill named, so no compliance traceability is applicable.
 
 ### Testing
 
