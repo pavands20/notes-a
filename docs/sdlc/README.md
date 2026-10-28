@@ -5,7 +5,7 @@
 <!-- sdlc:auto:start overview -->
 A one-page app where a user can add a short note, see the list of notes, and delete a note. No login, no file uploads, no AI. React frontend, FastAPI backend, Postgres.
 
-**Documentation version:** v3
+**Documentation version:** v4
 <!-- sdlc:auto:end overview -->
 
 ## Contents
@@ -17,7 +17,7 @@ A one-page app where a user can add a short note, see the list of notes, and del
 | [Architecture](architecture/README.md) | 15 entries |
 | [Development](development/README.md) | 19 entries |
 | [Testing](testing/README.md) | 1 entry |
-| [Deployment](deployment/README.md) | 1 entry |
+| [Deployment](deployment/README.md) | 3 entries |
 | [Maintenance](maintenance/README.md) | 1 entry |
 | [Data model](architecture/data-model.md) | generated |
 | [API (OpenAPI)](architecture/api/openapi.yaml) | generated |
@@ -27,11 +27,11 @@ A one-page app where a user can add a short note, see the list of notes, and del
 | [API reference](development/api-reference.md) | 1 route |
 | [Test report](testing/test-report.md) | not run yet |
 | [Tests](testing/test-cases.md) | 0 tests |
-| [Deployment guide](deployment/deployment-guide.md) | not deployed yet |
-| [Runbook](deployment/runbook.md) | not deployed yet |
-| [Release notes](deployment/release-notes.md) | 0 releases |
+| [Deployment guide](deployment/deployment-guide.md) | deployed |
+| [Runbook](deployment/runbook.md) | deployed |
+| [Release notes](deployment/release-notes.md) | 1 release |
 | [Traceability matrix](traceability-matrix.md) | 9 requirements |
-| [Changelog](CHANGELOG.md) | 3 versions |
+| [Changelog](CHANGELOG.md) | 4 versions |
 <!-- sdlc:auto:end contents -->
 
 ## Open gaps
@@ -120,7 +120,22 @@ A one-page app where a user can add a short note, see the list of notes, and del
 
 ### Deployment
 
-- No deployment recorded yet.
+- No deployment date or time recorded.
+- No deployer or approver recorded. Entry status is left as draft because no approval was provided.
+- Environment not named (e.g. production vs. staging), although status is 'live'.
+- Input does not state which requirements (US-001 to US-009) are included in this version, so the requirement-to-release link cannot be confirmed.
+- No release notes or change list for this version.
+- No post-deployment verification, health-check or smoke-test results recorded.
+- No rollback plan or previous version recorded.
+- No monitoring, logging or alerting configuration recorded.
+- Version format looks like a commit hash, but the input does not confirm what it refers to (commit, build or image tag).
+- Hosting platform not explicitly stated; the AWS Amplify inference is based on the domain only.
+- No custom domain recorded. Whether the generated amplifyapp.com URL is the intended user-facing address is not stated.
+- Frontend build or configuration details (e.g. the backend API base URL it is configured with) not recorded.
+- No Postgres deployment details recorded (host, managed vs. self-hosted, migrations applied, backups).
+- Backend is addressed via an IP-based sslip.io hostname rather than a named domain. Whether this is intended for a live deployment is not stated.
+- No API health or readiness check result recorded.
+- No configuration or secrets management details recorded (e.g. CORS allowed origins for the frontend URL, database credentials handling).
 
 ### Maintenance
 
