@@ -5,203 +5,213 @@
 <!-- sdlc:auto:start narrative -->
 ### DEV-PLAN-V1 · approved · source: plan:version-1
 
-Plan version 1 is approved. It has two sprints (capacity 20 each), six epics and nine stories totalling 24 points.
+Approved development plan (version 1) for Notes A, a one-page React + FastAPI + Postgres notes app with no login, uploads or AI. It has 6 epics and 9 stories totalling 24 points across 2 sprints of capacity 20 each.
 
 Plan status: approved, version 1.
-Epics and stories, in the order the plan lists them:
-- EPIC-001 Shared notes list (unassigned)
+
+Epics and stories:
+- EPIC-001 Shared notes list (no points, unassigned)
   - US-001 View all notes newest first: 3 pts, frontend-agent
   - US-002 Shared list is the same for everyone: 1 pt, qa-agent
-- EPIC-002 Add notes (unassigned)
+- EPIC-002 Add notes (no points, unassigned)
   - US-003 Add a short plain-text note: 3 pts, frontend-agent
   - US-004 Reject empty and over-length notes: 3 pts, frontend-agent
   - US-005 Notes cannot be edited: 1 pt, backend-agent
-- EPIC-003 Delete notes (unassigned)
+- EPIC-003 Delete notes (no points, unassigned)
   - US-006 Delete any note permanently: 3 pts, frontend-agent
-- EPIC-004 Persistence (unassigned)
+- EPIC-004 Persistence (no points, unassigned)
   - US-007 Notes are saved between visits: 3 pts, devops-agent
-- EPIC-005 Notes service (REST API) (unassigned)
+- EPIC-005 Notes service (REST API) (no points, unassigned)
   - US-008 List, add and delete notes through the API: 5 pts, backend-agent
-- EPIC-006 Setup and usage guide (unassigned)
+- EPIC-006 Setup and usage guide (no points, unassigned)
   - US-009 Run the app from the guide: 2 pts, devops-agent
-Total: 24 story points.
 
-**Related:** EPIC-001, EPIC-002, EPIC-003, EPIC-004, EPIC-005, EPIC-006, US-001, US-002, US-003, US-004, US-005, US-006, US-007, US-008, US-009
+Story points by role:
+- frontend-agent: 12
+- backend-agent: 6
+- devops-agent: 5
+- qa-agent: 1
+- Total: 24 of 40 total capacity
 
-- ⚠ The epic-to-story grouping is inferred from listing order; the input does not state parent links explicitly.
-- ⚠ Story-to-sprint assignment is not explicit; it is inferred only from the sprint goal wording.
-- ⚠ The plan approver and approval date are not recorded.
+**Related:** EPIC-001, EPIC-002, EPIC-003, EPIC-004, EPIC-005, EPIC-006, US-001, US-002, US-003, US-004, US-005, US-006, US-007, US-008, US-009, SPRINT-1, SPRINT-2
 
-### DEV-SPRINT-1 · approved · source: plan:Sprint 1
+- ⚠ Plan approval date and approver are not recorded.
+- ⚠ The plan does not explicitly assign stories to sprints; only the sprint goal text implies the split.
+- ⚠ Epics carry no points or owner role.
 
-Sprint 1 aimed to deliver a working, persistent notes app: the API, migration and Compose persistence, and the React page. Only the API and persistence parts were delivered.
+### SPRINT-1 · approved · source: plan:Sprint 1
+
+Sprint 1 targets a working, persistent notes app. Scope is the API, the database migration, Compose persistence, and the React page to view, add (with validation) and delete notes. Capacity is 20.
 
 Goal (verbatim): A working, persistent notes app: the API, migration and Compose persistence, plus the React page to view, add (with validation) and delete notes.
 Capacity: 20.
-Stories matching the goal: US-008 (API), US-007 (persistence), US-001 (view), US-003 (add), US-004 (validation), US-006 (delete). Together these total 20 points.
-Outcome in the run:
-- Delivered: US-007, US-008
-- Skipped: US-001, US-003, US-004, US-006 (the React page)
 
-**Related:** US-001, US-003, US-004, US-006, US-007, US-008
+Stories the goal text implies (not explicitly assigned in the plan):
+- US-001
+- US-003
+- US-004
+- US-006
+- US-007
+- US-008
 
-- ⚠ The sprint goal is not met: the React page tickets (US-001, US-003, US-004, US-006) were skipped, yet the run status is 'completed'.
-- ⚠ No reason is recorded for skipping the frontend tickets.
-- ⚠ No sprint dates are recorded.
+These 6 stories total 20 points, matching the capacity.
 
-### DEV-SPRINT-2 · approved · source: plan:Sprint 2
+The development run records no delivered tickets for any of these stories.
 
-Sprint 2 aims to confirm the list is shared and that notes cannot be edited, and to ship the README with a one-step Docker Compose start. No tickets for it appear in the development run.
+**Related:** DEV-PLAN-V1, US-001, US-003, US-004, US-006, US-007, US-008
+
+- ⚠ No ticket, status or commit is recorded for any Sprint 1 work. It is unknown whether the sprint was executed.
+- ⚠ Sprint dates are not recorded.
+
+### SPRINT-2 · approved · source: plan:Sprint 2
+
+Sprint 2 confirms the notes list is shared and that notes cannot be edited. It also ships the README with a one-step Docker Compose start. Capacity is 20.
 
 Goal (verbatim): Confirm the list is shared and notes cannot be edited, and ship the README with a one-step Docker Compose start.
 Capacity: 20.
-Stories matching the goal: US-002 (1 pt, qa-agent), US-005 (1 pt, backend-agent), US-009 (2 pts, devops-agent). Together these total 4 points.
 
-**Related:** US-002, US-005, US-009
+Stories the goal text implies:
+- US-002 (1 pt)
+- US-005 (1 pt)
+- US-009 (2 pts)
 
-- ⚠ The development run has no tickets for US-002, US-005 or US-009, so it is unclear whether Sprint 2 has started.
-- ⚠ The README and setup guide (US-009) are not yet recorded as delivered.
+These total 4 points.
 
-### DEV-RUN · draft · source: dev:run
+All three are recorded as delivered in the development run.
 
-The development run is marked 'completed'. It contains six tickets: two delivered and four skipped.
+**Related:** DEV-PLAN-V1, US-002, US-005, US-009
 
-Run status: completed.
-- US-001: skipped, no commit
-- US-003: skipped, no commit
-- US-004: skipped, no commit
-- US-006: skipped, no commit
-- US-007: delivered, commit d1e86a8e1326840b79f9b7fb231067b892feae11
-- US-008: delivered, commit d1e86a8e1326840b79f9b7fb231067b892feae11
+- ⚠ Sprint dates are not recorded.
+- ⚠ Sprint 2 verifies behavior that depends on Sprint 1 deliverables, which have no delivery record.
 
-**Related:** US-001, US-003, US-004, US-006, US-007, US-008
+### US-002 · draft · source: dev:US-002
 
-- ⚠ Discrepancy: the run status says 'completed', but 4 of 6 tickets were skipped and the frontend is not built.
-- ⚠ No run date or reviewer is recorded.
+Ticket 'Shared list is the same for everyone' is delivered. The commit is shared with US-005.
 
-### DEV-US-008 · draft · source: dev:TICKET-US-008
+- Ticket: US-002, Shared list is the same for everyone
+- Owner role (plan): qa-agent, 1 pt
+- Status: delivered
+- Commit: 907d71da11369ddd0a674bdf5a1e54cd2cb1202e (same commit as US-005)
 
-The FastAPI REST API for listing, adding and deleting notes was delivered.
+**Related:** EPIC-001, SPRINT-2, US-001, US-008
 
-Ticket: List, add and delete notes through the API.
-Plan: 5 pts, backend-agent.
-Status: delivered.
-Commit: d1e86a8e1326840b79f9b7fb231067b892feae11 (shared with US-007).
+- ⚠ No description of what was changed or verified in this commit.
+- ⚠ No review or approval is recorded.
+- ⚠ No delivery date is recorded.
 
-**Related:** US-008, EPIC-005, DEV-SPRINT-1
+### US-005 · draft · source: dev:US-005
 
-- ⚠ Endpoint paths, payloads and server-side validation rules are not described in the input.
-- ⚠ No code review or test result is recorded.
+Ticket 'Notes cannot be edited' is delivered. The commit is shared with US-002.
 
-### DEV-US-007 · draft · source: dev:TICKET-US-007
+- Ticket: US-005, Notes cannot be edited
+- Owner role (plan): backend-agent, 1 pt
+- Status: delivered
+- Commit: 907d71da11369ddd0a674bdf5a1e54cd2cb1202e (same commit as US-002)
 
-Persistence of notes between visits (Postgres, migration, Compose persistence per the Sprint 1 goal) was delivered.
+**Related:** EPIC-002, SPRINT-2, US-003, US-008
 
-Ticket: Notes are saved between visits.
-Plan: 3 pts, devops-agent.
-Status: delivered.
-Commit: d1e86a8e1326840b79f9b7fb231067b892feae11 (shared with US-008).
+- ⚠ The input does not state how non-editability is enforced, for example by having no update endpoint.
+- ⚠ No review or approval is recorded.
+- ⚠ No delivery date is recorded.
 
-**Related:** US-007, EPIC-004, DEV-SPRINT-1
+### US-009 · draft · source: dev:US-009
 
-- ⚠ Migration and volume configuration details are not described.
-- ⚠ No verification is recorded that data survives a restart.
+Ticket 'Run the app from the guide' is delivered. Per the Sprint 2 goal, this is the README with a one-step Docker Compose start.
 
-### DEV-US-001 · draft · source: dev:TICKET-US-001
+- Ticket: US-009, Run the app from the guide
+- Owner role (plan): devops-agent, 2 pts
+- Status: delivered
+- Commit: 6e672adde93c4292fc9045e8e996e854330707ae
 
-The frontend view of all notes, newest first, was skipped and not built.
+**Related:** EPIC-006, SPRINT-2, US-007
 
-Plan: 3 pts, frontend-agent.
-Status: skipped.
-Commit: none.
+- ⚠ README contents and the exact start command are not provided.
+- ⚠ No review or approval is recorded.
+- ⚠ No delivery date is recorded.
 
-**Related:** US-001, EPIC-001, DEV-SPRINT-1
+### US-001 · draft · source: plan:version-1
 
-- ⚠ No reason is recorded for the skip.
-- ⚠ No follow-up is planned or recorded.
+Planned story 'View all notes newest first' (3 pts, frontend-agent). No delivery is recorded.
 
-### DEV-US-003 · draft · source: dev:TICKET-US-003
+- Present in the approved plan
+- Absent from the development run ticket list
 
-The frontend form for adding a short plain-text note was skipped and not built.
+**Related:** EPIC-001, SPRINT-1
 
-Plan: 3 pts, frontend-agent.
-Status: skipped.
-Commit: none.
+- ⚠ No ticket status or commit is recorded, although the run is marked completed. Delivery is unconfirmed.
 
-**Related:** US-003, EPIC-002, DEV-SPRINT-1
+### US-003 · draft · source: plan:version-1
 
-- ⚠ No reason is recorded for the skip.
-- ⚠ No follow-up is planned or recorded.
+Planned story 'Add a short plain-text note' (3 pts, frontend-agent). No delivery is recorded.
 
-### DEV-US-004 · draft · source: dev:TICKET-US-004
+- Present in the approved plan
+- Absent from the development run ticket list
 
-Rejection of empty and over-length notes in the frontend was skipped and not built.
+**Related:** EPIC-002, SPRINT-1
 
-Plan: 3 pts, frontend-agent.
-Status: skipped.
-Commit: none.
-
-**Related:** US-004, EPIC-002, DEV-SPRINT-1
-
-- ⚠ No reason is recorded for the skip.
+- ⚠ No ticket status or commit is recorded. Delivery is unconfirmed.
 - ⚠ The maximum note length is not specified in the input.
-- ⚠ It is unknown whether the API (US-008) enforces this validation server-side.
 
-### DEV-US-006 · draft · source: dev:TICKET-US-006
+### US-004 · draft · source: plan:version-1
 
-The frontend control for permanently deleting any note was skipped and not built.
+Planned story 'Reject empty and over-length notes' (3 pts, frontend-agent). No delivery is recorded.
 
-Plan: 3 pts, frontend-agent.
-Status: skipped.
-Commit: none.
+- Present in the approved plan
+- Absent from the development run ticket list
 
-**Related:** US-006, EPIC-003, DEV-SPRINT-1
+**Related:** EPIC-002, SPRINT-1, US-003
 
-- ⚠ No reason is recorded for the skip.
-- ⚠ No follow-up is planned or recorded.
+- ⚠ No ticket status or commit is recorded. Delivery is unconfirmed.
+- ⚠ The length limit and validation messages are not specified.
+- ⚠ The input does not say whether validation also runs on the backend.
 
-### DEV-US-002 · draft · source: plan:US-002
+### US-006 · draft · source: plan:version-1
 
-Confirming that the shared list is the same for everyone is planned but has no ticket in the run.
+Planned story 'Delete any note permanently' (3 pts, frontend-agent). No delivery is recorded.
 
-Plan: 1 pt, qa-agent.
-No development ticket exists.
+- Present in the approved plan
+- Absent from the development run ticket list
 
-**Related:** US-002, EPIC-001, DEV-SPRINT-2
+**Related:** EPIC-003, SPRINT-1
 
-- ⚠ Not started; there is no ticket or commit.
+- ⚠ No ticket status or commit is recorded. Delivery is unconfirmed.
+- ⚠ The input does not say whether a delete confirmation is required.
 
-### DEV-US-005 · draft · source: plan:US-005
+### US-007 · draft · source: plan:version-1
 
-Ensuring notes cannot be edited is planned but has no ticket in the run.
+Planned story 'Notes are saved between visits' (3 pts, devops-agent). It covers the migration and Compose persistence. No delivery is recorded.
 
-Plan: 1 pt, backend-agent.
-No development ticket exists.
+- Present in the approved plan
+- Absent from the development run ticket list
 
-**Related:** US-005, EPIC-002, DEV-SPRINT-2
+**Related:** EPIC-004, SPRINT-1, US-009
 
-- ⚠ Not started; there is no ticket or commit.
-- ⚠ It is unconfirmed whether the delivered API (US-008) omits edit/update endpoints.
+- ⚠ No ticket status or commit is recorded. Delivery is unconfirmed.
 
-### DEV-US-009 · draft · source: plan:US-009
+### US-008 · draft · source: plan:version-1
 
-The README with a one-step Docker Compose start is planned but has no ticket in the run.
+Planned story 'List, add and delete notes through the API' (5 pts, backend-agent). No delivery is recorded.
 
-Plan: 2 pts, devops-agent.
-No development ticket exists.
+- Present in the approved plan
+- Absent from the development run ticket list
 
-**Related:** US-009, EPIC-006, DEV-SPRINT-2
+**Related:** EPIC-005, SPRINT-1, US-001, US-003, US-006
 
-- ⚠ Not started; there is no ticket or commit.
+- ⚠ No ticket status or commit is recorded. Delivery is unconfirmed.
+- ⚠ API endpoints and contracts are not provided.
 
-### DEV-USER-GUIDE-STATUS · draft
+### DEV-GAPS · draft
 
-An end-user guide cannot be written yet because the React page was not built.
+Phase-level gaps: the completion claim conflicts with the delivery records, and no user guide can be written yet.
 
-All user-facing frontend tickets were skipped. Only the API and persistence exist.
+Discrepancy: the development run status is 'completed', but only 3 of 9 planned stories have ticket and commit records. The 6 missing stories (US-001, US-003, US-004, US-006, US-007, US-008) carry all the core view, add, validate, delete, persist and API functionality.
 
-**Related:** US-001, US-003, US-004, US-006
+Both facts are reported as given. Neither is assumed correct.
 
-- ⚠ The application UI isn't built yet, so there is no usage to document.
-- ⚠ No App Design screens (SCR keys) were provided.
+**Related:** US-001, US-003, US-004, US-006, US-007, US-008, SPRINT-1
+
+- ⚠ Conflict: the run is marked completed, but Sprint 1 stories US-001, US-003, US-004, US-006, US-007 and US-008 have no delivery records. Someone needs to confirm whether they were delivered under other ticket ids or not built.
+- ⚠ User guide not produced: core screen functionality (view, add, delete notes) cannot be confirmed as built, so there is nothing confirmed to document usage for.
+- ⚠ No App Design screen keys were provided.
+- ⚠ No run dates, reviewers or test results are recorded for this phase.
 <!-- sdlc:auto:end narrative -->

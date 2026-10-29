@@ -5,7 +5,7 @@
 <!-- sdlc:auto:start overview -->
 A one-page app where a user can add a short note, see the list of notes, and delete a note. No login, no file uploads, no AI. React frontend, FastAPI backend, Postgres.
 
-**Documentation version:** v6
+**Documentation version:** v7
 <!-- sdlc:auto:end overview -->
 
 ## Contents
@@ -15,7 +15,7 @@ A one-page app where a user can add a short note, see the list of notes, and del
 |---|---|
 | [Requirements](requirements/README.md) | v1 approved |
 | [Architecture](architecture/README.md) | 15 entries |
-| [Development](development/README.md) | 14 entries |
+| [Development](development/README.md) | 13 entries |
 | [Testing](testing/README.md) | 1 entry |
 | [Deployment](deployment/README.md) | 3 entries |
 | [Maintenance](maintenance/README.md) | 1 entry |
@@ -31,7 +31,7 @@ A one-page app where a user can add a short note, see the list of notes, and del
 | [Runbook](deployment/runbook.md) | deployed |
 | [Release notes](deployment/release-notes.md) | 2 releases |
 | [Traceability matrix](traceability-matrix.md) | 9 requirements |
-| [Changelog](CHANGELOG.md) | 6 versions |
+| [Changelog](CHANGELOG.md) | 7 versions |
 <!-- sdlc:auto:end contents -->
 
 ## Open gaps
@@ -88,28 +88,28 @@ A one-page app where a user can add a short note, see the list of notes, and del
 
 ### Development
 
-- The epic-to-story grouping is inferred from listing order; the input does not state parent links explicitly.
-- Story-to-sprint assignment is not explicit; it is inferred only from the sprint goal wording.
-- The plan approver and approval date are not recorded.
-- The sprint goal is not met: the React page tickets (US-001, US-003, US-004, US-006) were skipped, yet the run status is 'completed'.
-- No reason is recorded for skipping the frontend tickets.
-- No sprint dates are recorded.
-- The development run has no tickets for US-002, US-005 or US-009, so it is unclear whether Sprint 2 has started.
-- The README and setup guide (US-009) are not yet recorded as delivered.
-- Discrepancy: the run status says 'completed', but 4 of 6 tickets were skipped and the frontend is not built.
-- No run date or reviewer is recorded.
-- Endpoint paths, payloads and server-side validation rules are not described in the input.
-- No code review or test result is recorded.
-- Migration and volume configuration details are not described.
-- No verification is recorded that data survives a restart.
-- No reason is recorded for the skip.
-- No follow-up is planned or recorded.
+- Plan approval date and approver are not recorded.
+- The plan does not explicitly assign stories to sprints; only the sprint goal text implies the split.
+- Epics carry no points or owner role.
+- No ticket, status or commit is recorded for any Sprint 1 work. It is unknown whether the sprint was executed.
+- Sprint dates are not recorded.
+- Sprint 2 verifies behavior that depends on Sprint 1 deliverables, which have no delivery record.
+- No description of what was changed or verified in this commit.
+- No review or approval is recorded.
+- No delivery date is recorded.
+- The input does not state how non-editability is enforced, for example by having no update endpoint.
+- README contents and the exact start command are not provided.
+- No ticket status or commit is recorded, although the run is marked completed. Delivery is unconfirmed.
+- No ticket status or commit is recorded. Delivery is unconfirmed.
 - The maximum note length is not specified in the input.
-- It is unknown whether the API (US-008) enforces this validation server-side.
-- Not started; there is no ticket or commit.
-- It is unconfirmed whether the delivered API (US-008) omits edit/update endpoints.
-- The application UI isn't built yet, so there is no usage to document.
-- No App Design screens (SCR keys) were provided.
+- The length limit and validation messages are not specified.
+- The input does not say whether validation also runs on the backend.
+- The input does not say whether a delete confirmation is required.
+- API endpoints and contracts are not provided.
+- Conflict: the run is marked completed, but Sprint 1 stories US-001, US-003, US-004, US-006, US-007 and US-008 have no delivery records. Someone needs to confirm whether they were delivered under other ticket ids or not built.
+- User guide not produced: core screen functionality (view, add, delete notes) cannot be confirmed as built, so there is nothing confirmed to document usage for.
+- No App Design screen keys were provided.
+- No run dates, reviewers or test results are recorded for this phase.
 
 ### Testing
 
