@@ -3,56 +3,56 @@
 > Maintained by QuorQ AI SDLC. Text between `sdlc:auto` markers is regenerated; anything outside them is yours and is kept.
 
 <!-- sdlc:auto:start narrative -->
-### DEP-e9b2c94ec08d · draft · source: deployment:e9b2c94ec08d
+### DEP-bfb67701aec2 · draft · source: deployment:bfb67701aec2
 
-Notes A is reported as live at version e9b2c94ec08d. The deployment has two parts: a React frontend and a FastAPI backend. The input confirms only the status, version and URLs.
+Notes A version bfb67701aec2 is deployed and its status is reported as live. The release has a frontend endpoint and a backend endpoint, each documented in its own entry.
 
-- Project: Notes A, a one-page app to add, list and delete short notes. It has no login, no file uploads and no AI.
-- Stack, from the project description: React frontend, FastAPI backend, Postgres.
-- Deployment status: live
-- Version: e9b2c94ec08d
+- Status: live
+- Version: bfb67701aec2
 - Frontend URL: https://p171ec6182f4b.d13el1ykvx8z63.amplifyapp.com
 - Backend URL: https://100-52-98-41.sslip.io/apps/171ec6182f4b/
-- Date, deployer, approver and environment name: not provided.
+- Stack (from project description): React frontend, FastAPI backend, Postgres.
+- Scope (from project description): one-page app to add a short note, list notes, and delete a note. No login, no file uploads, no AI.
 
-**Related:** DEP-e9b2c94ec08d-FE, DEP-e9b2c94ec08d-BE
+**Related:** DEP-bfb67701aec2-FE, DEP-bfb67701aec2-BE
 
-- ⚠ No deployment date or time recorded.
-- ⚠ No deployer or approver recorded. Approval status is unknown, so this entry is marked draft.
-- ⚠ No environment name given (e.g. production vs. staging/preview).
-- ⚠ No release notes or change list for version e9b2c94ec08d.
-- ⚠ No mapping from this deployment to requirements US-001 to US-009. It is unconfirmed which requirements this version delivers.
-- ⚠ No test or QA sign-off referenced for this version.
-- ⚠ No post-deployment smoke test or health check results recorded.
+- ⚠ No deployment date or timestamp recorded.
+- ⚠ No record of who performed or approved the deployment.
+- ⚠ Environment is not named (e.g. production vs. staging). 'Live' alone does not confirm it is production.
+- ⚠ No smoke-test, health-check, or post-deploy verification results provided.
 - ⚠ No rollback plan or previous version recorded.
-- ⚠ No database (Postgres) deployment or migration details recorded.
+- ⚠ No monitoring, logging, or alerting configuration recorded.
+- ⚠ The version string looks like a commit hash, but the input does not confirm this or name the repository or branch.
+- ⚠ The input does not state which requirements (US-001 to US-009) are included in this release, so requirement traceability for the deployment cannot be established.
+- ⚠ Only one version is given. The input does not confirm that the frontend and backend were both deployed from the same version.
+- ⚠ Postgres database deployment details (host, version, migrations applied) are not recorded.
 
-### DEP-e9b2c94ec08d-FE · draft · source: deployment:e9b2c94ec08d
+### DEP-bfb67701aec2-FE · draft · source: deployment:bfb67701aec2
 
-Frontend endpoint for the live Notes A deployment. The URL is on an amplifyapp.com domain.
+The React frontend for release bfb67701aec2 is served at an AWS Amplify-hosted URL.
 
-- Frontend URL: https://p171ec6182f4b.d13el1ykvx8z63.amplifyapp.com
-- Component: React frontend, per the project description.
-- Version: e9b2c94ec08d
+- URL: https://p171ec6182f4b.d13el1ykvx8z63.amplifyapp.com
+- Hosting: the amplifyapp.com domain indicates AWS Amplify hosting. This is inferred from the URL only.
+- Release version: bfb67701aec2
 
-**Related:** DEP-e9b2c94ec08d
+**Related:** DEP-bfb67701aec2
 
-- ⚠ The input does not state which backend URL the frontend is configured to call. Assumed to be the backend URL listed below, but unconfirmed.
-- ⚠ No custom domain, CDN or caching configuration recorded.
-- ⚠ No record that this URL was verified reachable after deployment.
+- ⚠ No custom domain recorded. It is not stated whether the default Amplify URL is the intended public URL.
+- ⚠ No record of how the frontend is configured to reach the backend URL (e.g. environment variable or build setting).
 
-### DEP-e9b2c94ec08d-BE · draft · source: deployment:e9b2c94ec08d
+### DEP-bfb67701aec2-BE · draft · source: deployment:bfb67701aec2
 
-Backend endpoint for the live Notes A deployment, served under an app-specific path on an sslip.io hostname.
+The FastAPI backend for release bfb67701aec2 is served under a path on an sslip.io hostname, which resolves to an IP-derived address.
 
-- Backend URL: https://100-52-98-41.sslip.io/apps/171ec6182f4b/
-- Component: FastAPI backend with Postgres, per the project description.
-- Version: e9b2c94ec08d
+- URL: https://100-52-98-41.sslip.io/apps/171ec6182f4b/
+- Hostname format: sslip.io maps the hostname to the embedded IP address (100.52.98.41).
+- The path prefix /apps/171ec6182f4b/ suggests the backend runs on a shared host alongside other apps. This is inferred from the URL and not stated in the input.
+- Release version: bfb67701aec2
 
-**Related:** DEP-e9b2c94ec08d
+**Related:** DEP-bfb67701aec2
 
-- ⚠ The hostname is an sslip.io wildcard DNS name derived from an IP address. The input does not say whether this is the intended long-term endpoint or a temporary one.
-- ⚠ No API health check endpoint or verification result recorded.
-- ⚠ No hosting details for the Postgres database (location, backups, credential management).
-- ⚠ No CORS configuration recorded linking this backend to the frontend origin.
+- ⚠ It is not confirmed whether the IP-based sslip.io hostname is the intended long-term backend endpoint or a temporary one.
+- ⚠ No health-check endpoint or result recorded for the backend.
+- ⚠ No CORS configuration recorded for allowing requests from the Amplify frontend origin.
+- ⚠ Database connection and Postgres hosting details for this deployment are not recorded.
 <!-- sdlc:auto:end narrative -->

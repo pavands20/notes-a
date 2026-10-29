@@ -5,7 +5,7 @@
 <!-- sdlc:auto:start overview -->
 A one-page app where a user can add a short note, see the list of notes, and delete a note. No login, no file uploads, no AI. React frontend, FastAPI backend, Postgres.
 
-**Documentation version:** v8
+**Documentation version:** v9
 <!-- sdlc:auto:end overview -->
 
 ## Contents
@@ -25,13 +25,13 @@ A one-page app where a user can add a short note, see the list of notes, and del
 | [Sprint plan](development/sprint-plan.md) | 2 sprints |
 | [Developer guide](development/developer-guide.md) | generated |
 | [API reference](development/api-reference.md) | 4 routes |
-| [Test report](testing/test-report.md) | not run yet |
+| [Test report](testing/test-report.md) | running |
 | [Tests](testing/test-cases.md) | 0 tests |
 | [Deployment guide](deployment/deployment-guide.md) | deployed |
 | [Runbook](deployment/runbook.md) | deployed |
 | [Release notes](deployment/release-notes.md) | 3 releases |
 | [Traceability matrix](traceability-matrix.md) | 9 requirements |
-| [Changelog](CHANGELOG.md) | 8 versions |
+| [Changelog](CHANGELOG.md) | 9 versions |
 <!-- sdlc:auto:end contents -->
 
 ## Open gaps
@@ -129,22 +129,22 @@ A one-page app where a user can add a short note, see the list of notes, and del
 
 ### Deployment
 
-- No deployment date or time recorded.
-- No deployer or approver recorded. Approval status is unknown, so this entry is marked draft.
-- No environment name given (e.g. production vs. staging/preview).
-- No release notes or change list for version e9b2c94ec08d.
-- No mapping from this deployment to requirements US-001 to US-009. It is unconfirmed which requirements this version delivers.
-- No test or QA sign-off referenced for this version.
-- No post-deployment smoke test or health check results recorded.
+- No deployment date or timestamp recorded.
+- No record of who performed or approved the deployment.
+- Environment is not named (e.g. production vs. staging). 'Live' alone does not confirm it is production.
+- No smoke-test, health-check, or post-deploy verification results provided.
 - No rollback plan or previous version recorded.
-- No database (Postgres) deployment or migration details recorded.
-- The input does not state which backend URL the frontend is configured to call. Assumed to be the backend URL listed below, but unconfirmed.
-- No custom domain, CDN or caching configuration recorded.
-- No record that this URL was verified reachable after deployment.
-- The hostname is an sslip.io wildcard DNS name derived from an IP address. The input does not say whether this is the intended long-term endpoint or a temporary one.
-- No API health check endpoint or verification result recorded.
-- No hosting details for the Postgres database (location, backups, credential management).
-- No CORS configuration recorded linking this backend to the frontend origin.
+- No monitoring, logging, or alerting configuration recorded.
+- The version string looks like a commit hash, but the input does not confirm this or name the repository or branch.
+- The input does not state which requirements (US-001 to US-009) are included in this release, so requirement traceability for the deployment cannot be established.
+- Only one version is given. The input does not confirm that the frontend and backend were both deployed from the same version.
+- Postgres database deployment details (host, version, migrations applied) are not recorded.
+- No custom domain recorded. It is not stated whether the default Amplify URL is the intended public URL.
+- No record of how the frontend is configured to reach the backend URL (e.g. environment variable or build setting).
+- It is not confirmed whether the IP-based sslip.io hostname is the intended long-term backend endpoint or a temporary one.
+- No health-check endpoint or result recorded for the backend.
+- No CORS configuration recorded for allowing requests from the Amplify frontend origin.
+- Database connection and Postgres hosting details for this deployment are not recorded.
 
 ### Maintenance
 
