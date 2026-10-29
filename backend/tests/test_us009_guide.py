@@ -48,7 +48,10 @@ def test_ac027_nfr006_usage_add_view_delete_and_migration():
     "name,pattern",
     [
         ("280 limit", r"280"),
-        ("no editing", r"no edit|cannot (be )?edit|can't (be )?edit|not (be )?edit|edit(ing)? (is )?(not|un)"),
+        (
+            "no editing",
+            r"no edit|cannot (be )?edit|can't (be )?edit|not (be )?edit|edit(ing)? (is )?(not|un)",
+        ),
         ("permanent delete", r"permanent"),
         ("no confirmation", r"without (a )?confirm|no confirm|not ask for confirm|no confirmation"),
         ("anyone can delete any", r"anyone|any user|any note"),
