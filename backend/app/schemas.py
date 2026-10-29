@@ -1,20 +1,27 @@
-"""Pydantic request and response models.
+"""Pydantic request and response models."""
 
-One pair per entity in the approved data model, plus the placeholder every
-generated route returns until it has been implemented.
-"""
+from datetime import datetime
 
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict, field_validator
 
 
-class StubResponse(BaseModel):
-    """What a generated route returns until someone implements it.
+class NoteCreate(BaseModel):
+    text: str
 
-    A stub that returns a typed body rather than raising keeps the service
-    startable and its OpenAPI document complete, so the frontend can be built
-    against the agreed shape while the handlers are still being written.
-    """
+    @field_validator("text")
+    @classmethod
+    def _check_text(cls, value: str) -> str:
+        # Stored exactly as submitted; only emptiness and length are checked.
+        if not value.strip():
+            raise ValueError("text must not be empty or whitespace-only")
+        if len(value) > 280:
+            raise ValueError("text must be at most 280 characters")
+        return value
 
-    endpoint: str
-    status: str = "not_implemented"
-    detail: str = "Scaffolded from the approved API spec; no behaviour yet."
+
+class NoteOut(BaseModel):
+    model_config = ConfigDict(from_attributes=True)
+
+    id: int
+    text: str
+    created_at: datetime
