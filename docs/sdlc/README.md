@@ -5,7 +5,7 @@
 <!-- sdlc:auto:start overview -->
 A one-page app where a user can add a short note, see the list of notes, and delete a note. No login, no file uploads, no AI. React frontend, FastAPI backend, Postgres.
 
-**Documentation version:** v5
+**Documentation version:** v6
 <!-- sdlc:auto:end overview -->
 
 ## Contents
@@ -31,7 +31,7 @@ A one-page app where a user can add a short note, see the list of notes, and del
 | [Runbook](deployment/runbook.md) | deployed |
 | [Release notes](deployment/release-notes.md) | 2 releases |
 | [Traceability matrix](traceability-matrix.md) | 9 requirements |
-| [Changelog](CHANGELOG.md) | 5 versions |
+| [Changelog](CHANGELOG.md) | 6 versions |
 <!-- sdlc:auto:end contents -->
 
 ## Open gaps
@@ -118,21 +118,21 @@ A one-page app where a user can add a short note, see the list of notes, and del
 ### Deployment
 
 - No deployment date or time recorded.
-- No deployer or approver recorded. Entry status is left as draft because no approval was provided.
-- Environment not named (e.g. production vs. staging), although status is 'live'.
-- Input does not state which requirements (US-001 to US-009) are included in this version, so the requirement-to-release link cannot be confirmed.
-- No release notes or change list for this version.
-- No post-deployment verification, health-check or smoke-test results recorded.
+- No deployer or approver recorded. Approval status is unknown, so this entry is marked draft.
+- No environment name given (e.g. production vs. staging/preview).
+- No release notes or change list for version e9b2c94ec08d.
+- No mapping from this deployment to requirements US-001 to US-009. It is unconfirmed which requirements this version delivers.
+- No test or QA sign-off referenced for this version.
+- No post-deployment smoke test or health check results recorded.
 - No rollback plan or previous version recorded.
-- No monitoring, logging or alerting configuration recorded.
-- Version format looks like a commit hash, but the input does not confirm what it refers to (commit, build or image tag).
-- Hosting platform not explicitly stated; the AWS Amplify inference is based on the domain only.
-- No custom domain recorded. Whether the generated amplifyapp.com URL is the intended user-facing address is not stated.
-- Frontend build or configuration details (e.g. the backend API base URL it is configured with) not recorded.
-- No Postgres deployment details recorded (host, managed vs. self-hosted, migrations applied, backups).
-- Backend is addressed via an IP-based sslip.io hostname rather than a named domain. Whether this is intended for a live deployment is not stated.
-- No API health or readiness check result recorded.
-- No configuration or secrets management details recorded (e.g. CORS allowed origins for the frontend URL, database credentials handling).
+- No database (Postgres) deployment or migration details recorded.
+- The input does not state which backend URL the frontend is configured to call. Assumed to be the backend URL listed below, but unconfirmed.
+- No custom domain, CDN or caching configuration recorded.
+- No record that this URL was verified reachable after deployment.
+- The hostname is an sslip.io wildcard DNS name derived from an IP address. The input does not say whether this is the intended long-term endpoint or a temporary one.
+- No API health check endpoint or verification result recorded.
+- No hosting details for the Postgres database (location, backups, credential management).
+- No CORS configuration recorded linking this backend to the frontend origin.
 
 ### Maintenance
 
