@@ -5,7 +5,7 @@
 <!-- sdlc:auto:start overview -->
 A one-page app where a user can add a short note, see the list of notes, and delete a note. No login, no file uploads, no AI. React frontend, FastAPI backend, Postgres.
 
-**Documentation version:** v7
+**Documentation version:** v8
 <!-- sdlc:auto:end overview -->
 
 ## Contents
@@ -16,7 +16,7 @@ A one-page app where a user can add a short note, see the list of notes, and del
 | [Requirements](requirements/README.md) | v1 approved |
 | [Architecture](architecture/README.md) | 15 entries |
 | [Development](development/README.md) | 13 entries |
-| [Testing](testing/README.md) | 1 entry |
+| [Testing](testing/README.md) | 3 entries |
 | [Deployment](deployment/README.md) | 3 entries |
 | [Maintenance](maintenance/README.md) | 1 entry |
 | [Data model](architecture/data-model.md) | generated |
@@ -29,9 +29,9 @@ A one-page app where a user can add a short note, see the list of notes, and del
 | [Tests](testing/test-cases.md) | 0 tests |
 | [Deployment guide](deployment/deployment-guide.md) | deployed |
 | [Runbook](deployment/runbook.md) | deployed |
-| [Release notes](deployment/release-notes.md) | 2 releases |
+| [Release notes](deployment/release-notes.md) | 3 releases |
 | [Traceability matrix](traceability-matrix.md) | 9 requirements |
-| [Changelog](CHANGELOG.md) | 7 versions |
+| [Changelog](CHANGELOG.md) | 8 versions |
 <!-- sdlc:auto:end contents -->
 
 ## Open gaps
@@ -88,32 +88,44 @@ A one-page app where a user can add a short note, see the list of notes, and del
 
 ### Development
 
-- Plan approval date and approver are not recorded.
-- The plan does not explicitly assign stories to sprints; only the sprint goal text implies the split.
-- Epics carry no points or owner role.
-- No ticket, status or commit is recorded for any Sprint 1 work. It is unknown whether the sprint was executed.
-- Sprint dates are not recorded.
-- Sprint 2 verifies behavior that depends on Sprint 1 deliverables, which have no delivery record.
-- No description of what was changed or verified in this commit.
-- No review or approval is recorded.
-- No delivery date is recorded.
-- The input does not state how non-editability is enforced, for example by having no update endpoint.
-- README contents and the exact start command are not provided.
-- No ticket status or commit is recorded, although the run is marked completed. Delivery is unconfirmed.
-- No ticket status or commit is recorded. Delivery is unconfirmed.
+- No approval date or approver recorded for the plan.
+- Epic-to-story grouping is inferred from the order of the plan list. The input does not state parent links explicitly.
+- Story-to-sprint assignment is not stated explicitly in the input. It is only implied by the sprint goals.
+- Explicit sprint membership of stories is not given. The mapping is inferred from the goal text and the point total.
+- No tickets, statuses or commits recorded for US-001, US-003, US-004, US-006, US-007 or US-008, even though the development run is marked completed.
+- No sprint dates recorded.
+- Explicit sprint membership of stories is not given. The mapping is inferred from the goal text.
+- Sprint 2 builds on Sprint 1 (confirming shared list and immutability, and documenting startup), yet no Sprint 1 delivery is recorded.
+- Discrepancy: the run status is 'completed', but only 3 of 9 planned stories have ticket records. It is unclear whether the other 6 were delivered in an earlier run, are untracked, or were not built.
+- No dates, authors or code review approvals recorded for the run or its commits.
+- No test results are attached to any delivered ticket.
+- No ticket, status or commit recorded. Delivery cannot be confirmed.
+- The role is qa-agent, so the story may be a verification task. The input does not say what the commit contains (tests or code).
+- The shared-list behaviour depends on US-001 and US-008, which have no recorded delivery.
 - The maximum note length is not specified in the input.
-- The length limit and validation messages are not specified.
-- The input does not say whether validation also runs on the backend.
-- The input does not say whether a delete confirmation is required.
-- API endpoints and contracts are not provided.
-- Conflict: the run is marked completed, but Sprint 1 stories US-001, US-003, US-004, US-006, US-007 and US-008 have no delivery records. Someone needs to confirm whether they were delivered under other ticket ids or not built.
-- User guide not produced: core screen functionality (view, add, delete notes) cannot be confirmed as built, so there is nothing confirmed to document usage for.
-- No App Design screen keys were provided.
-- No run dates, reviewers or test results are recorded for this phase.
+- The length limit value is not given in the input.
+- The story is assigned to frontend-agent only. The input does not say whether the API also enforces validation.
+- The input does not say how immutability is enforced (for example, no update endpoint, or a rejected PUT/PATCH).
+- The planned role is backend-agent, but the commit is shared with US-002 (qa-agent). Authorship is not recorded.
+- The input does not say whether deletion asks the user to confirm first.
+- Endpoint paths and contracts are not provided in the input.
+- The README contents and the exact startup command are not included in the input.
+- The guide documents an app whose core stories (US-001, US-003, US-004, US-006, US-007, US-008) have no recorded delivery.
 
 ### Testing
 
-- Testing phase has not started: no test plan, cases or results are recorded for AC-001 to AC-028 or NFR-001 to NFR-010.
+- The input does not name the 4 checks, for example lint, type-check, unit tests or e2e tests.
+- Unclear whether this run includes the newly added frontend/e2e/shared-list.spec.ts. Ordering relative to the write_tests step is not stated.
+- No run date, commit or environment is recorded.
+- It is unknown which requirements (US-001 to US-009) these checks exercise.
+- Ticket 73f568e0-0295-429f-902d-3b8b8c23088c is not mapped to a requirement key (US-001 to US-009) in the input.
+- AC-005 is not mapped to its parent user story in the input.
+- The input does not show a pass/fail result for shared-list.spec.ts itself. 'succeeded' refers to writing the test, and inclusion in the 4/4 check run is not confirmed.
+- The claim that existing suites cover the other ACs is unverified. No suite names, files or AC-to-test mapping were provided.
+- A requirement-to-test traceability mapping for US-001 to US-009 is needed.
+- No identified tests exist for adding a note, listing notes or deleting a note.
+- No test plan, test environment, defect log or QA sign-off was provided.
+- No non-functional testing (performance, security, accessibility) is recorded.
 
 ### Deployment
 
