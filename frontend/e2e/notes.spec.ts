@@ -16,7 +16,7 @@ async function seed(request: APIRequestContext, text: string) {
 
 const input = (page: Page) => page.getByLabel(/Note \(max 280 characters\)/);
 const addButton = (page: Page) => page.getByRole("button", { name: "Add note" });
-const deleteButtons = (page: Page) => page.getByRole("button", { name: /^Delete note:/ });
+
 const items = (page: Page) => page.locator("section[aria-labelledby='notes-list-title'] li");
 const errorBox = (page: Page) => page.locator("#note-error");
 
