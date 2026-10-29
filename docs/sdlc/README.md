@@ -5,7 +5,7 @@
 <!-- sdlc:auto:start overview -->
 A one-page app where a user can add a short note, see the list of notes, and delete a note. No login, no file uploads, no AI. React frontend, FastAPI backend, Postgres.
 
-**Documentation version:** v4
+**Documentation version:** v5
 <!-- sdlc:auto:end overview -->
 
 ## Contents
@@ -15,7 +15,7 @@ A one-page app where a user can add a short note, see the list of notes, and del
 |---|---|
 | [Requirements](requirements/README.md) | v1 approved |
 | [Architecture](architecture/README.md) | 15 entries |
-| [Development](development/README.md) | 19 entries |
+| [Development](development/README.md) | 14 entries |
 | [Testing](testing/README.md) | 1 entry |
 | [Deployment](deployment/README.md) | 3 entries |
 | [Maintenance](maintenance/README.md) | 1 entry |
@@ -24,14 +24,14 @@ A one-page app where a user can add a short note, see the list of notes, and del
 | [Decisions (ADRs)](architecture/adr/README.md) | 4 decisions |
 | [Sprint plan](development/sprint-plan.md) | 2 sprints |
 | [Developer guide](development/developer-guide.md) | generated |
-| [API reference](development/api-reference.md) | 1 route |
+| [API reference](development/api-reference.md) | 4 routes |
 | [Test report](testing/test-report.md) | not run yet |
 | [Tests](testing/test-cases.md) | 0 tests |
 | [Deployment guide](deployment/deployment-guide.md) | deployed |
 | [Runbook](deployment/runbook.md) | deployed |
-| [Release notes](deployment/release-notes.md) | 1 release |
+| [Release notes](deployment/release-notes.md) | 2 releases |
 | [Traceability matrix](traceability-matrix.md) | 9 requirements |
-| [Changelog](CHANGELOG.md) | 4 versions |
+| [Changelog](CHANGELOG.md) | 5 versions |
 <!-- sdlc:auto:end contents -->
 
 ## Open gaps
@@ -88,31 +88,28 @@ A one-page app where a user can add a short note, see the list of notes, and del
 
 ### Development
 
-- No approval date or approver recorded for plan v1.
-- No development execution records (tickets, commits, PRs, reviews, completion status) provided, so actual progress against the plan is unknown.
-- Explicit story-to-sprint assignment is not given; sprint membership is only implied by sprint goal text.
-- Epics have no points or owning role assigned (points=None, role unassigned).
-- Sprint dates not provided.
-- Story membership is inferred from the goal text; no explicit assignment in input.
-- No record of whether the sprint started, completed, or met its goal.
-- Inferred load (4 points) is well below capacity (20); input gives no reason for the unused capacity.
-- No record of whether the sprint started or completed.
-- Parent/child linkage is inferred from plan item ordering; not explicitly stated.
-- No development status recorded.
-- Parent/child linkage is inferred from plan item ordering.
-- No API contract (endpoints, payloads) provided in development input.
-- No ticket, code, or completion status recorded.
-- Sort key for "newest first" (e.g. creation timestamp) not specified in development input.
-- No ticket, verification result, or completion status recorded.
-- Maximum note length not specified in development input.
-- Assigned only to frontend-agent; input does not state whether validation is also enforced server-side.
-- Whether deletion requires a confirmation step is not specified.
-- Migration tooling and volume configuration not specified.
-- Endpoint paths, methods and payload schema not provided.
-- README content not provided.
-- No development execution records provided.
-- Application not confirmed built; end-user guide cannot be produced.
-- No industry or domain skill named, so no compliance traceability is applicable.
+- The epic-to-story grouping is inferred from listing order; the input does not state parent links explicitly.
+- Story-to-sprint assignment is not explicit; it is inferred only from the sprint goal wording.
+- The plan approver and approval date are not recorded.
+- The sprint goal is not met: the React page tickets (US-001, US-003, US-004, US-006) were skipped, yet the run status is 'completed'.
+- No reason is recorded for skipping the frontend tickets.
+- No sprint dates are recorded.
+- The development run has no tickets for US-002, US-005 or US-009, so it is unclear whether Sprint 2 has started.
+- The README and setup guide (US-009) are not yet recorded as delivered.
+- Discrepancy: the run status says 'completed', but 4 of 6 tickets were skipped and the frontend is not built.
+- No run date or reviewer is recorded.
+- Endpoint paths, payloads and server-side validation rules are not described in the input.
+- No code review or test result is recorded.
+- Migration and volume configuration details are not described.
+- No verification is recorded that data survives a restart.
+- No reason is recorded for the skip.
+- No follow-up is planned or recorded.
+- The maximum note length is not specified in the input.
+- It is unknown whether the API (US-008) enforces this validation server-side.
+- Not started; there is no ticket or commit.
+- It is unconfirmed whether the delivered API (US-008) omits edit/update endpoints.
+- The application UI isn't built yet, so there is no usage to document.
+- No App Design screens (SCR keys) were provided.
 
 ### Testing
 
