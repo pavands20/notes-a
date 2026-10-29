@@ -87,7 +87,9 @@ def test_ac023_delete_existing_hard_deletes():
     r = client.delete(f"/notes/{n['id']}")
     assert r.status_code in (200, 204)
     with engine.connect() as c:
-        left = c.execute(text("SELECT count(*) FROM notes WHERE id=:i"), {"i": n["id"]}).scalar_one()
+        left = c.execute(
+            text("SELECT count(*) FROM notes WHERE id=:i"), {"i": n["id"]}
+        ).scalar_one()
     assert left == 0
     assert n["id"] not in [x["id"] for x in client.get("/notes").json()]
 
@@ -115,7 +117,9 @@ def test_ac007_markup_stored_byte_for_byte():
     listed = [x for x in client.get("/notes").json() if x["id"] == r.json()["id"]]
     assert listed[0]["text"] == raw
     with engine.connect() as c:
-        stored = c.execute(text("SELECT text FROM notes WHERE id=:i"), {"i": r.json()["id"]}).scalar_one()
+        stored = c.execute(
+            text("SELECT text FROM notes WHERE id=:i"), {"i": r.json()["id"]}
+        ).scalar_one()
     assert stored == raw
 
 
@@ -143,13 +147,19 @@ def test_ac024_nfr004_alembic_upgrade_head_on_empty_schema():
     try:
         p = subprocess.run(
             [sys.executable, "-m", "alembic", "upgrade", "head"],
-            cwd=BACKEND_DIR, env=env, capture_output=True, text=True, timeout=120,
+            cwd=BACKEND_DIR,
+            env=env,
+            capture_output=True,
+            text=True,
+            timeout=120,
         )
         assert p.returncode == 0, p.stdout + p.stderr
         with engine.connect() as c:
             found = c.execute(
-                text("SELECT count(*) FROM information_schema.tables "
-                     "WHERE table_schema=:s AND table_name='notes'"),
+                text(
+                    "SELECT count(*) FROM information_schema.tables "
+                    "WHERE table_schema=:s AND table_name='notes'"
+                ),
                 {"s": schema},
             ).scalar_one()
         assert found == 1
